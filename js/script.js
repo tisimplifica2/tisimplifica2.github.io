@@ -58,33 +58,20 @@ function adicionarFuncionario(setorSelector, funcionario) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    function drawLine(fromElement, toElement) {
-        const fromRect = fromElement.getBoundingClientRect();
-        const toRect = toElement.getBoundingClientRect();
-        
-        const containerRect = document.querySelector('.container').getBoundingClientRect();
-        
-        const fromX = fromRect.left - containerRect.left + fromRect.width / 2;
-        const fromY = fromRect.bottom - containerRect.top;
-        const toX = toRect.left - containerRect.left + toRect.width / 2;
-        const toY = toRect.top - containerRect.top;
-        
-        const line = document.createElement('div');
-        line.className = 'line';
-        document.querySelector('.container').appendChild(line);
-        
-        line.style.left = Math.min(fromX, toX) + 'px';
-        line.style.top = Math.min(fromY, toY) + 'px';
-        line.style.width = Math.abs(fromX - toX) + 'px';
-        line.style.height = Math.abs(fromY - toY) + 'px';
-        line.style.transform = `rotate(${Math.atan2(toY - fromY, toX - fromX) * 180 / Math.PI}deg)`;
-    }
+document.addEventListener('DOMContentLoaded', function() {
+        var gestaoLink = document.getElementById('gestao-link');
+        var gestaoEstagiarios = document.getElementById('gestao-estagiarios');
 
-    const funcionario2 = document.getElementById('funcionario2');
-    const receita = document.getElementById('receita');
-    const identidade = document.getElementById('identidade');
-    
-    drawLine(funcionario2, receita);
-    drawLine(funcionario2, identidade);
-});
+        gestaoLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+
+            // Alterna a visibilidade da lista de estagiários
+            if (gestaoEstagiarios.style.display === 'none' || gestaoEstagiarios.style.display === '') {
+                gestaoEstagiarios.style.display = 'flex';
+            } else {
+                gestaoEstagiarios.style.display = 'none';
+            }
+        });
+    });
+
+
