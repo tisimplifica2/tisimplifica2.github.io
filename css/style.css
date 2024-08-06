@@ -51,7 +51,7 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 50%;
+            right: 50px;
             border-top: 2px solid #ccc;
             width: 100%;
             height: 10px;
@@ -147,8 +147,8 @@
         .coordenadores {
             display: flex;
             gap: 25px;
-            margin-left: 22px;
             position: relative;
+            justify-content: center;
         }
 
         /* Conexões entre coordenadores */
@@ -166,7 +166,6 @@
         .funcionarios {
             display: none;
             padding-top: 10px;
-            display: flex;
             flex-direction: row;
             gap: 35px;
         }
