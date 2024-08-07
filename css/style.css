@@ -6,44 +6,57 @@
 }
 
 body .container {
-    overflow: visible; /* Permite o conteúdo ultrapassar a largura */
+    overflow: visible;
+    /* Permite o conteúdo ultrapassar a largura */
 }
 
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
-    height: 100vh; /* Altura da tela */
-    margin: 0; /* Remove margens padrão */
+    height: 100vh;
+    /* Altura da tela */
+    margin: 0;
+    /* Remove margens padrão */
 }
 
 .container {
     display: flex;
-    align-items: flex-start; /* Alinha ao topo */
+    align-items: flex-start;
+    /* Alinha ao topo */
     position: center;
     margin-left: 500px;
     width: 100%;
     min-width: 2000px;
-    height: auto; /* Permite o ajuste da altura conforme o conteúdo */
+    height: auto;
+    /* Permite o ajuste da altura conforme o conteúdo */
 
 }
+
+.tree #gestao-link {
+    position: relative;
+}
+
+
 
 .tree {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    white-space: nowrap; /* Garante que o conteúdo não quebre para nova linha */
+    white-space: nowrap;
+    /* Garante que o conteúdo não quebre para nova linha */
 }
 
 .tree ul {
-    padding-top: 10px;
+    padding-top: 15px;
     position: relative;
     display: flex;
     flex-direction: row;
     height: auto;
     white-space: nowrap;
-    justify-content: center; /* Centraliza os itens filhos */
+    justify-content: center;
+    /* Centraliza os itens filhos */
 }
 
 .tree li {
@@ -51,7 +64,9 @@ body {
     text-align: center;
     list-style-type: none;
     position: relative;
-    padding: 20px;
+    padding-top: 8px;
+    padding-right: 5px;
+    padding-left: 10px;
     vertical-align: top;
     box-sizing: border-box;
 }
@@ -64,7 +79,7 @@ body {
     top: 0;
     border-top: 2px solid #ccc;
     width: 50%;
-    height: 10px;
+    height: 100px;
     z-index: -1;
 }
 
@@ -100,7 +115,7 @@ body {
     left: 50%;
     border-left: 2px solid #ccc;
     width: 0;
-    height: 20px;
+    height: 28px;
     z-index: -1;
 }
 
@@ -111,11 +126,22 @@ body {
     margin-right: -10px;
 }
 
+.tree-node.gestao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px; /* Largura da linha */
+    height: 500px; /* Altura total da seção */
+    background-color: #ccc; /* Cor da linha */
+    z-index: -1; /* Fica atrás dos outros elementos */
+}
+
+
 .coordenadores {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: -10px;
     position: relative;
 }
 
@@ -123,22 +149,22 @@ body {
     display: flex;
     gap: 10px;
     position: relative;
-    margin-top: -20px;
+    margin-top: 10px;
 }
 
 #gestao-link:hover,
-#gestao-link:hover ~ .coordenadores .node-link,
-#gestao-link:hover ~ .coordenadores .node-link:hover,
-#gestao-link:hover ~ .gestao-estagiarios .node-link,
-#gestao-link:hover ~ .gestao-estagiarios .node-link:hover {
+#gestao-link:hover~.coordenadores .node-link,
+#gestao-link:hover~.coordenadores .node-link:hover,
+#gestao-link:hover~.gestao-estagiarios .node-link,
+#gestao-link:hover~.gestao-estagiarios .node-link:hover {
     background: #c8e4f8;
     color: #000;
     border: 1px solid #94a0b4;
 }
 
 
-.coordenadores:hover ~ .gestao-estagiarios .node-link,
-.coordenadores:hover ~ .gestao-estagiarios .node-link:hover {
+.coordenadores:hover~.gestao-estagiarios .node-link,
+.coordenadores:hover~.gestao-estagiarios .node-link:hover {
     background: #c8e4f8;
     color: #000;
     border: 1px solid #94a0b4;
@@ -292,4 +318,5 @@ body {
 
 .titulo-page {
     margin-top: 100px;
+    margin-left: 600px;
 }

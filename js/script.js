@@ -30,18 +30,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const gestaoCoordenadores = document.getElementById('coordenadores');
 
     gestaoLink.addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do link
+        event.preventDefault();
 
-        // Alterna a visibilidade da lista de estagiários
         const isEstagiariosVisible = gestaoEstagiarios.style.display === 'flex';
         gestaoEstagiarios.style.display = isEstagiariosVisible ? 'none' : 'flex';
 
-        // Alterna a visibilidade da lista de coordenadores
         const isCoordenadoresVisible = gestaoCoordenadores.style.display === 'flex';
         gestaoCoordenadores.style.display = isCoordenadoresVisible ? 'none' : 'flex';
     });
 
-    // Opcional: Alternar a visibilidade de outros funcionários se necessário
     document.querySelectorAll('.node-link.funcionario').forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
