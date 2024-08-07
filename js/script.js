@@ -59,19 +59,19 @@ function adicionarFuncionario(setorSelector, funcionario) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-        var gestaoLink = document.getElementById('gestao-link');
-        var gestaoEstagiarios = document.getElementById('gestao-estagiarios');
+    var gestaoLink = document.getElementById('gestao-link');
+    var gestaoEstagiarios = document.getElementById('gestao-estagiarios');
 
-        gestaoLink.addEventListener('click', function(event) {
-            event.preventDefault(); // Evita o comportamento padrão do link
+    gestaoLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do link
 
-            // Alterna a visibilidade da lista de estagiários
-            if (gestaoEstagiarios.style.display === 'none' || gestaoEstagiarios.style.display === '') {
-                gestaoEstagiarios.style.display = 'flex';
-            } else {
-                gestaoEstagiarios.style.display = 'none';
-            }
-        });
+        // Alterna a visibilidade da lista de estagiários
+        if (gestaoEstagiarios.style.display === 'none' || gestaoEstagiarios.style.display === '') {
+            gestaoEstagiarios.style.display = 'flex';
+        } else {
+            gestaoEstagiarios.style.display = 'none';
+        }
     });
+});
 
 

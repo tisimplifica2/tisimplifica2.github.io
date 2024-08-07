@@ -23,21 +23,21 @@ body {
 }
 
 .tree {
-    margin-top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     white-space: nowrap;
 }
 
+/* Estilo das linhas de conexão dos itens */
 .tree ul {
-    padding-top: 10px; /* Ajuste reduzido para diminuir a distância entre os níveis */
+    padding-top: 10px; 
     position: relative;
     display: flex;
     flex-direction: row;
-    overflow: hidden; /* Esconde qualquer linha que ultrapasse o container */
-    height: auto; /* Ajusta a altura conforme necessário */
-    max-height: 100%; /* Ajuste para o tamanho desejado */
+    overflow: hidden; 
+    height: auto; 
+    max-height: 100%; 
     white-space: nowrap;
 }
 
@@ -51,13 +51,15 @@ body {
     box-sizing: border-box;
 }
 
+/* Ajuste o estilo das linhas de conexão dos itens */
 .tree li::before, .tree li::after {
     content: '';
     position: absolute;
     top: 0;
     border-top: 2px solid #ccc;
-    width: 100%;
-    height: 10px;
+    width: 50%; /* Ajustar a largura conforme necessário */
+    height: 10px; /* Ajustar a altura conforme necessário */
+    z-index: -1; /* Para garantir que as linhas fiquem atrás dos itens */
 }
 
 .tree li::before {
@@ -72,35 +74,16 @@ body {
     border-radius: 5px 0 0 0;
 }
 
-.tree li:only-child::after, .tree li:only-child::before {
+.tree li:only-child::before, .tree li:only-child::after {
     display: none;
 }
 
-.tree li:only-child {
-    padding-top: 0;
+.tree li:first-child::before {
+    border: 0;
 }
 
-.tree li:first-child::before, .tree li:last-child::after {
-    border: 0 none;
-}
-
-.tree li:last-child::before {
-    border-right: 1px solid #ccc;
-    border-radius: 0 5px 0 0;
-}
-
-.tree li:first-child::after {
-    border-radius: 5px 0 0 0;
-}
-
-.tree-node > ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    border-left: 2px solid #ccc;
-    height: calc(100% + 10px); /* Ajuste a altura para que não ultrapasse o container */
-    z-index: 0; /* Garanta que a linha está abaixo do conteúdo */
+.tree li:last-child::after {
+    border: 0;
 }
 
 .tree ul ul::before {
@@ -110,51 +93,35 @@ body {
     left: 50%;
     border-left: 2px solid #ccc;
     width: 0;
-    height: 10px; /* Ajuste conforme necessário para limitar a altura */
+    height: 20px; /* Ajustar a altura conforme necessário */
+    z-index: -1; /* Para garantir que a linha fique atrás dos itens */
 }
 
 /* Ajuste a posição das linhas de conexão */
 .tree-node {
     position: relative;
+    display: flex;
+    margin-top: 10px;
+    margin-right: -10px;
 }
 
 /* Linhas de conexão dos coordenadores */
 .coordenadores {
     display: flex;
-    padding-top: 20px;
-    gap: 105px; /* Ajuste reduzido para diminuir o espaço entre os coordenadores */
-    position: relative;
     justify-content: center;
+    gap: 20px; /* Ajuste o espaço entre as caixas dos coordenadores */
+    margin-top: 20px; /* Ajuste a margem superior para controlar o espaço entre os coordenadores e o nível acima */
+    position: relative;
 }
 
 .gestao-estagiarios {
     display: flex;
+    gap: 10px;
     position: relative;
-    justify-content: center;
+    margin-top: 20px; /* Ajuste o espaçamento entre a coordenação e os estagiários */
 }
 
-/* Linha horizontal superior */
-.coordenadores::before {
-    content: '';
-    position: absolute;
-    top:10%;
-    left: 45%;
-    width: 10%;
-    border-top: 2px solid #ccc;
-    z-index: -1;
-}
-
-.coordenadores .vertical-line {
-    position: absolute;
-    top: 3%; /* Alinha a linha vertical no meio dos coordenadores */
-    left: 53.2%; /* Centraliza a linha vertical */
-    height: 149px; /* Ajuste a altura conforme necessário */
-    width: 2px; /* Largura da linha vertical */
-    background-color: #ccc; /* Cor da linha vertical */
-    z-index: -1;
-    transform: translateX(-50%); /* Ajusta a posição da linha para centralizá-la */
-}
-
+/* Ajustar o estilo das caixas */
 .tree li a {
     border: 2px solid #ccc;
     padding: 10px;
@@ -170,7 +137,6 @@ body {
     text-overflow: ellipsis;
     white-space: normal; 
 }
-
 
 .tree li a img {
     width: 50px;
@@ -207,7 +173,7 @@ body {
     border-color: #94a0b4;
 }
 
-.node-link.setor:hover ~ .coordenadores .coordenador {
+.node-link.setor:hover ~ .coordenadores .coordenador .gestao-estagiarios {
     background: #c8e4f8;
     color: #000;
     border: 1px solid #94a0b4;
@@ -218,7 +184,7 @@ body {
     display: none;
     padding-top: 10px;
     flex-direction: row;
-    gap: 35px;
+    gap: 5px;
 }
 
 /* Menu */
