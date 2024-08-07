@@ -31,13 +31,13 @@ body {
 
 /* Estilo das linhas de conexão dos itens */
 .tree ul {
-    padding-top: 10px; 
+    padding-top: 10px;
     position: relative;
     display: flex;
     flex-direction: row;
-    overflow: hidden; 
-    height: auto; 
-    max-height: 100%; 
+    overflow: hidden;
+    height: auto;
+    max-height: 100%;
     white-space: nowrap;
 }
 
@@ -52,14 +52,18 @@ body {
 }
 
 /* Ajuste o estilo das linhas de conexão dos itens */
-.tree li::before, .tree li::after {
+.tree li::before,
+.tree li::after {
     content: '';
     position: absolute;
     top: 0;
     border-top: 2px solid #ccc;
-    width: 50%; /* Ajustar a largura conforme necessário */
-    height: 10px; /* Ajustar a altura conforme necessário */
-    z-index: -1; /* Para garantir que as linhas fiquem atrás dos itens */
+    width: 50%;
+    /* Ajustar a largura conforme necessário */
+    height: 10px;
+    /* Ajustar a altura conforme necessário */
+    z-index: -1;
+    /* Para garantir que as linhas fiquem atrás dos itens */
 }
 
 .tree li::before {
@@ -74,7 +78,8 @@ body {
     border-radius: 5px 0 0 0;
 }
 
-.tree li:only-child::before, .tree li:only-child::after {
+.tree li:only-child::before,
+.tree li:only-child::after {
     display: none;
 }
 
@@ -93,8 +98,10 @@ body {
     left: 50%;
     border-left: 2px solid #ccc;
     width: 0;
-    height: 20px; /* Ajustar a altura conforme necessário */
-    z-index: -1; /* Para garantir que a linha fique atrás dos itens */
+    height: 20px;
+    /* Ajustar a altura conforme necessário */
+    z-index: -1;
+    /* Para garantir que a linha fique atrás dos itens */
 }
 
 /* Ajuste a posição das linhas de conexão */
@@ -109,8 +116,10 @@ body {
 .coordenadores {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Ajuste o espaço entre as caixas dos coordenadores */
-    margin-top: 20px; /* Ajuste a margem superior para controlar o espaço entre os coordenadores e o nível acima */
+    gap: 20px;
+    /* Ajuste o espaço entre as caixas dos coordenadores */
+    margin-top: 20px;
+    /* Ajuste a margem superior para controlar o espaço entre os coordenadores e o nível acima */
     position: relative;
 }
 
@@ -118,24 +127,27 @@ body {
     display: flex;
     gap: 10px;
     position: relative;
-    margin-top: 20px; /* Ajuste o espaçamento entre a coordenação e os estagiários */
+    margin-top: 20px;
+    /* Ajuste o espaçamento entre a coordenação e os estagiários */
 }
 
 /* Ajustar o estilo das caixas */
 .tree li a {
     border: 2px solid #ccc;
     padding: 10px;
-    display: inline-flex; 
-    flex-direction: column; 
+    display: inline-flex;
+    flex-direction: column;
     border-radius: 5px;
     text-decoration: none;
     background: #fff;
     transition: .5s;
-    width: 150px; /* Ajuste a largura conforme necessário */
-    height: 120px; /* Ajuste a altura conforme necessário */
-    overflow: hidden; 
+    width: 150px;
+    /* Ajuste a largura conforme necessário */
+    height: 120px;
+    /* Ajuste a altura conforme necessário */
+    overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal; 
+    white-space: normal;
 }
 
 .tree li a img {
@@ -163,17 +175,23 @@ body {
 }
 
 /* Hover Section */
-.tree li a:hover, .tree li a:hover i, .tree li a:hover span, .tree li a:hover+ul li a {
+.tree li a:hover,
+.tree li a:hover i,
+.tree li a:hover span,
+.tree li a:hover+ul li a {
     background: #c8e4f8;
     color: #000;
     border: 1px solid #94a0b4;
 }
 
-.tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before, .tree li a:hover+ul ul::before {
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before {
     border-color: #94a0b4;
 }
 
-.node-link.setor:hover ~ .coordenadores .coordenador .gestao-estagiarios {
+.node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
     background: #c8e4f8;
     color: #000;
     border: 1px solid #94a0b4;
@@ -208,7 +226,7 @@ body {
     position: relative;
 }
 
-.menu-item > a {
+.menu-item>a {
     color: #fff;
     text-decoration: none;
     font-size: 20px;
@@ -218,7 +236,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.menu-item > a:hover {
+.menu-item>a:hover {
     background-color: #0056b3;
 }
 
