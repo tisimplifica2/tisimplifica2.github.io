@@ -5,40 +5,45 @@
     box-sizing: border-box;
 }
 
+body .container {
+    overflow: visible; /* Permite o conteúdo ultrapassar a largura */
+}
+
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
-    overflow-x: scroll;
-    overflow-y: scroll;
-    height: 100vh;
-    margin: 0;
+    height: 100vh; /* Altura da tela */
+    margin: 0; /* Remove margens padrão */
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    align-items: flex-start; /* Alinha ao topo */
+    position: center;
+    margin-left: 300px;
     width: 100%;
+    min-width: 2000px;
+    height: auto; /* Permite o ajuste da altura conforme o conteúdo */
+
 }
 
 .tree {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    white-space: nowrap;
+    white-space: nowrap; /* Garante que o conteúdo não quebre para nova linha */
 }
 
-/* Estilo das linhas de conexão dos itens */
 .tree ul {
     padding-top: 10px;
     position: relative;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
     height: auto;
-    max-height: 100%;
     white-space: nowrap;
+    justify-content: center; /* Centraliza os itens filhos */
 }
 
 .tree li {
@@ -46,7 +51,7 @@ body {
     text-align: center;
     list-style-type: none;
     position: relative;
-    padding: 10px;
+    padding: 20px;
     vertical-align: top;
     box-sizing: border-box;
 }
@@ -59,11 +64,8 @@ body {
     top: 0;
     border-top: 2px solid #ccc;
     width: 50%;
-    /* Ajustar a largura conforme necessário */
     height: 10px;
-    /* Ajustar a altura conforme necessário */
     z-index: -1;
-    /* Para garantir que as linhas fiquem atrás dos itens */
 }
 
 .tree li::before {
@@ -99,12 +101,9 @@ body {
     border-left: 2px solid #ccc;
     width: 0;
     height: 20px;
-    /* Ajustar a altura conforme necessário */
     z-index: -1;
-    /* Para garantir que a linha fique atrás dos itens */
 }
 
-/* Ajuste a posição das linhas de conexão */
 .tree-node {
     position: relative;
     display: flex;
@@ -112,14 +111,11 @@ body {
     margin-right: -10px;
 }
 
-/* Linhas de conexão dos coordenadores */
 .coordenadores {
     display: flex;
     justify-content: center;
     gap: 20px;
-    /* Ajuste o espaço entre as caixas dos coordenadores */
-    margin-top: 20px;
-    /* Ajuste a margem superior para controlar o espaço entre os coordenadores e o nível acima */
+    margin-top: -10px;
     position: relative;
 }
 
@@ -127,11 +123,27 @@ body {
     display: flex;
     gap: 10px;
     position: relative;
-    margin-top: 20px;
-    /* Ajuste o espaçamento entre a coordenação e os estagiários */
+    margin-top: -20px;
 }
 
-/* Ajustar o estilo das caixas */
+#gestao-link:hover,
+#gestao-link:hover ~ .coordenadores .node-link,
+#gestao-link:hover ~ .coordenadores .node-link:hover,
+#gestao-link:hover ~ .gestao-estagiarios .node-link,
+#gestao-link:hover ~ .gestao-estagiarios .node-link:hover {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
+
+.coordenadores:hover ~ .gestao-estagiarios .node-link,
+.coordenadores:hover ~ .gestao-estagiarios .node-link:hover {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
 .tree li a {
     border: 2px solid #ccc;
     padding: 10px;
@@ -142,18 +154,16 @@ body {
     background: #fff;
     transition: .5s;
     width: 150px;
-    /* Ajuste a largura conforme necessário */
-    height: 120px;
-    /* Ajuste a altura conforme necessário */
+    height: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
 }
 
 .tree li a img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px !important;
+    width: 70px;
+    height: 75px;
+    margin-bottom: 7px !important;
     border-radius: 50%;
     margin: auto;
 }
@@ -174,7 +184,6 @@ body {
     height: auto;
 }
 
-/* Hover Section */
 .tree li a:hover,
 .tree li a:hover i,
 .tree li a:hover span,
@@ -197,7 +206,6 @@ body {
     border: 1px solid #94a0b4;
 }
 
-/* Lista de funcionários */
 .funcionarios {
     display: none;
     padding-top: 10px;
@@ -205,11 +213,11 @@ body {
     gap: 5px;
 }
 
-/* Menu */
 .menu {
     position: fixed;
     width: 100%;
     height: 90px;
+    top: 0;
     background-color: rgb(28, 139, 172);
     display: flex;
     z-index: 1000;
@@ -272,4 +280,8 @@ body {
 
 .menu-item ul li a:hover {
     background-color: #004d80;
+}
+
+.titulo-page {
+    margin-top: 100px;
 }
