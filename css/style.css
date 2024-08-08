@@ -7,7 +7,6 @@
 
 body .container {
     overflow: visible;
-    /* Permite o conteúdo ultrapassar a largura */
 }
 
 
@@ -15,22 +14,17 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
     height: 100vh;
-    /* Altura da tela */
     margin: 0;
-    /* Remove margens padrão */
 }
 
 .container {
     display: flex;
     align-items: flex-start;
-    /* Alinha ao topo */
     position: center;
-    margin-left: 500px;
+    margin-left: 50px;
     width: 100%;
     min-width: 2000px;
     height: auto;
-    /* Permite o ajuste da altura conforme o conteúdo */
-
 }
 
 .tree #gestao-link {
@@ -45,7 +39,6 @@ body {
     flex-direction: column;
     align-items: center;
     white-space: nowrap;
-    /* Garante que o conteúdo não quebre para nova linha */
 }
 
 .tree ul {
@@ -197,7 +190,7 @@ body {
 .tree li a span {
     border: 1px solid #ccc;
     border-radius: 5px;
-    color: #666;
+    color: #000000;
     padding: 8px;
     font-size: 12px;
     text-transform: uppercase;
@@ -319,4 +312,22 @@ body {
 .titulo-page {
     margin-top: 100px;
     margin-left: 20px;
+}
+
+.parceiro-setor .node-link {
+    background-color: #b7dcee; /* Cor de fundo */
+    border: 1px solid #06050553; /* Cor da borda */
+    color: #000; /* Cor do texto */
+}
+
+.parceiro-setor .node-link:hover .node-label:hover {
+    background-color: rgb(108, 195, 222); /* Cor de fundo ao passar o mouse */
+    border-color: #0a05005e; /* Cor da borda ao passar o mouse */
+}
+
+/* Para alterar a borda envolta do nome */
+.parceiro-setor .node-label {
+    border: 2px solid rgba(0, 0, 0, 0.232); /* Exemplo de cor da borda */
+    padding: 8px;
+    border-radius: 5px;
 }
