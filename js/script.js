@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
     // Mostrar estagiários ao clicar em um coordenador
     document.querySelectorAll('.coordenadores .node-link').forEach(coordenador => {
         coordenador.addEventListener('click', function (event) {

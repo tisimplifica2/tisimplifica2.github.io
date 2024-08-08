@@ -21,7 +21,6 @@ body {
     display: flex;
     align-items: flex-start;
     position: center;
-    margin-left: 50px;
     width: 100%;
     min-width: 2000px;
     height: auto;
@@ -31,6 +30,25 @@ body {
     position: relative;
 }
 
+/* Inicialmente oculta setores e funcionários */
+.funcionarios, .coordenador-container {
+    display: none; /* Oculta inicialmente */
+}
+
+/* Quando visível, exibe como flex */
+.funcionarios, .coordenador-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Setores que estão visíveis */
+.node-link.setor.active + .funcionarios {
+    display: flex;
+}
+
+.node-link.coordenador.active + .funcionarios {
+    display: flex;
+}
 
 
 .tree {
@@ -130,8 +148,18 @@ body {
     z-index: -1; /* Fica atrás dos outros elementos */
 }
 
+.sub-funcionarios {
+    display: flex;
+}
 
 .coordenadores {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.coordenadores-setor {
     display: flex;
     justify-content: center;
     gap: 20px;
