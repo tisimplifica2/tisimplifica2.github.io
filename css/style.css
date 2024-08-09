@@ -209,6 +209,23 @@ body {
     margin-top: 10px;
 }
 
+.node-link-diretor {
+    margin-left: -600px;
+}
+
+.tree-node-gestao-setor {
+    margin-left: -10px;
+}
+
+.tree-root-gestao {
+    margin-left: -600px;
+}
+
+.tree-root-diretor {
+    display: none;
+    position: relative;
+}
+
 #gestao-link:hover,
 #gestao-link:hover~.coordenadores .node-link,
 #gestao-link:hover~.coordenadores .node-link:hover,
