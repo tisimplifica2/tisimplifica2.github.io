@@ -9,7 +9,6 @@ body .container {
     overflow: visible;
 }
 
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
@@ -17,12 +16,71 @@ body {
     margin: 0;
 }
 
+#setor-filter {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.dropdown-menu {
+    position: relative;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.dropbtn {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 12px 16px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    border-radius: 5px; /* Arredonda os cantos */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transições suaves para cor e sombra */
+}
+
+.dropbtn:hover {
+    background-color: #0056b3; /* Cor de fundo azul escuro ao passar o mouse */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao passar o mouse */
+}
+
+.dropdown-content {
+    display: none; /* Oculta o menu inicialmente */
+    position: absolute;
+    background-color: #ffffff; /* Cor de fundo do menu */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px; /* Arredonda os cantos do menu */
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black; /* Cor do texto das opções */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd; /* Linha divisória entre opções */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+/* Exibir o menu dropdown ao passar o mouse sobre o menu */
+.dropdown-menu:hover .dropdown-content {
+    display: block;
+}
+
 .container {
+    transform: scale(0.68); /* Reduz o zoom para 80% */
+    transform-origin: 0 0; /* Define o ponto de origem da transformação no canto superior esquerdo */
     display: flex;
     align-items: flex-start;
     position: center;
     width: 100%;
-    margin-left: 30px;
+    margin-left: 5px;
     min-width: 2000px;
     height: auto;
 }
@@ -50,7 +108,6 @@ body {
 .node-link.coordenador.active + .funcionarios {
     display: flex;
 }
-
 
 .tree {
     margin-top: 100px;
@@ -131,6 +188,12 @@ body {
     z-index: -1;
 }
 
+.node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
 .node-link.setor + .funcionarios {
     display: none; /* Certifica que setores estão inicialmente ocultos */
 }
@@ -139,6 +202,18 @@ body {
     display: none; /* Certifica que funcionários estão inicialmente ocultos */
 }
 
+/* Garantir que a grid se comporte como esperado */
+.funcionarios, .sub-funcionarios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de igual tamanho */
+    gap: 10px; /* Espaçamento entre os itens */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.funcionarios .tree-node, .sub-funcionarios .tree-node {
+    min-width: 150px; /* Largura mínima */
+    text-align: center; /* Centraliza o conteúdo */
+}
 
 .tree-node {
     position: relative;
@@ -158,7 +233,6 @@ body {
     margin-top: -15px;
 }
 
-
 .tree-node.gestao::before {
     content: '';
     position: absolute;
@@ -168,25 +242,20 @@ body {
     height: 500px; /* Altura total da seção */
     background-color: #ccc; /* Cor da linha */
     z-index: -1; /* Fica atrás dos outros elementos */
-    
 }
 
-.sub-sub-funcionarios {
-    display: flex;
-    gap: 10px; /* Espaçamento entre os itens */
-    padding: 0;
-    margin: 0;
-}
-
-/* Ajusta a largura dos itens para 3 itens por linha */
-.sub-sub-funcionarios .tree-node {
-    flex: 1 1 calc(33.333% - 10px); /* Três itens por linha, menos o gap */
-    padding: 10px;
+/* Garantir que a grid se comporte como esperado */
+.funcionarios, .sub-funcionarios {
     display: grid;
-    transition: background 0.3s;
-    min-width: 150px;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de igual tamanho */
+    gap: 10px; /* Espaçamento entre os itens */
+    width: 100%; /* Ocupa toda a largura disponível */
 }
 
+.funcionarios .tree-node, .sub-funcionários .tree-node {
+    min-width: 150px; /* Largura mínima */
+    text-align: center; /* Centraliza o conteúdo */
+}
 
 .coordenadores {
     display: flex;
@@ -236,7 +305,6 @@ body {
     border: 1px solid #94a0b4;
 }
 
-
 .coordenadores:hover~.gestao-estagiarios .node-link,
 .coordenadores:hover~.gestao-estagiarios .node-link:hover {
     background: #c8e4f8;
@@ -253,17 +321,26 @@ body {
     text-decoration: none;
     background: #fff;
     transition: .5s;
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 165px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
 }
 
+.tree li a .funcionarios {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de tamanho igual */
+        gap: 10px; /* Espaçamento entre os itens */
+        margin-top: 10px; /* Espaçamento superior opcional */
+        min-width: 150px; /* Largura mínima para os itens */
+        box-sizing: border-box;
+}
+
 .tree li a img {
-    width: 60px;
+    width: 70px;
     height: 70px;
-    margin-bottom: 7px !important;
+    margin-bottom: 12px !important;
     border-radius: 30%;
     margin: auto;
 }
@@ -312,13 +389,6 @@ body {
     background: #c8e4f8;
     color: #000;
     border: 1px solid #94a0b4;
-}
-
-.funcionarios {
-    display: none;
-    padding-top: 10px;
-    flex-direction: row;
-    gap: 5px;
 }
 
 .menu {
@@ -394,6 +464,22 @@ body {
     margin-top: 100px;
     margin-left: 20px;
 }
+
+#mostrar-tudo {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#mostrar-tudo:hover {
+    background-color: #0056b3;
+}
+
 
 .parceiro-setor .node-link {
     background-color: #b7dcee; /* Cor de fundo */

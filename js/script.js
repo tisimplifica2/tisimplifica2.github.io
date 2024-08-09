@@ -61,22 +61,80 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Adicionar a funcionalidade de "Mostrar Tudo"
+    const mostrarTudoBtn = document.getElementById('mostrar-tudo');
+    
+    mostrarTudoBtn.addEventListener('click', function () {
+        // Mostrar todos os setores
+        document.querySelectorAll('.funcionarios').forEach(funcionarios => {
+            funcionarios.style.display = 'flex';
+        });
+        
+        // Mostrar todos os estagiários e coordenadores
+        document.querySelectorAll('.gestao-estagiarios').forEach(el => {
+            el.style.display = 'flex';
+        });
+        document.querySelectorAll('.coordenadores').forEach(el => {
+            el.style.display = 'flex';
+        });
+        
+        // Mostrar todos os sub-funcionários
+        document.querySelectorAll('.sub-funcionarios').forEach(el => {
+            el.style.display = 'block';
+        });
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    function ajustarSubSubFuncionarios() {
-        document.querySelectorAll('.sub-sub-funcionarios').forEach(container => {
-            const items = container.querySelectorAll('.tree-node');
-            if (items.length > 3) {
-                // Adiciona uma classe se há mais de 3 itens
-                container.classList.add('wrap');
-            } else {
-                // Remove a classe se há 3 ou menos itens
-                container.classList.remove('wrap');
-            }
+    const setorFilter = document.getElementById('setor-filter');
+    const dropdownContent = document.getElementById('dropdown-content');
+
+    // Preencher o dropdown com opções
+    function populateDropdown() {
+        const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
+        setores.forEach(setor => {
+            const spanText = setor.querySelector('span.node-label').textContent;
+            const option = document.createElement('a');
+            option.href = '#';
+            option.textContent = spanText;
+            option.dataset.text = spanText.toLowerCase();
+            dropdownContent.appendChild(option);
         });
     }
 
-    ajustarSubSubFuncionarios();
-});
+    populateDropdown();
 
+    // Filtro por texto
+    setorFilter.addEventListener('input', function () {
+        const filterValue = this.value.toLowerCase();
+        const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
+        
+        setores.forEach(setor => {
+            const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
+            if (spanText.includes(filterValue)) {
+                setor.style.display = 'flex'; // Exibe se corresponder ao filtro
+            } else {
+                setor.style.display = 'none'; // Oculta se não corresponder ao filtro
+            }
+        });
+    });
+
+    // Filtro por dropdown
+    dropdownContent.addEventListener('click', function (event) {
+        if (event.target.tagName === 'A') {
+            const filterValue = event.target.dataset.text;
+            setorFilter.value = event.target.textContent;
+            const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
+            
+            setores.forEach(setor => {
+                const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
+                if (spanText.includes(filterValue)) {
+                    setor.style.display = 'flex'; // Exibe se corresponder ao filtro
+                } else {
+                    setor.style.display = 'none'; // Oculta se não corresponder ao filtro
+                }
+            });
+        }
+    });
+});
