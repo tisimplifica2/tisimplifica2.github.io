@@ -345,6 +345,11 @@ body {
     margin: auto;
 }
 
+.setor-filtrado {
+    position: absolute;
+    top: -150%;
+}
+
 .tree li a span {
     border: 1px solid #ccc;
     border-radius: 5px;

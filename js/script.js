@@ -87,54 +87,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const setorFilter = document.getElementById('setor-filter');
-    const dropdownContent = document.getElementById('dropdown-content');
+            // Obtenha o campo de filtro
+            const setorFilter = document.getElementById('setor-filter');
 
-    // Preencher o dropdown com opções
-    function populateDropdown() {
-        const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
-        setores.forEach(setor => {
-            const spanText = setor.querySelector('span.node-label').textContent;
-            const option = document.createElement('a');
-            option.href = '#';
-            option.textContent = spanText;
-            option.dataset.text = spanText.toLowerCase();
-            dropdownContent.appendChild(option);
-        });
-    }
+            // Adicione um evento para quando o texto do filtro mudar
+            setorFilter.addEventListener('input', function () {
+                // Obtenha o valor do filtro
+                const filterValue = this.value.toLowerCase();
 
-    populateDropdown();
+                // Selecione todos os setores e parceiros
+                const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
 
-    // Filtro por texto
-    setorFilter.addEventListener('input', function () {
-        const filterValue = this.value.toLowerCase();
-        const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
-        
-        setores.forEach(setor => {
-            const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
-            if (spanText.includes(filterValue)) {
-                setor.style.display = 'flex'; // Exibe se corresponder ao filtro
-            } else {
-                setor.style.display = 'none'; // Oculta se não corresponder ao filtro
-            }
-        });
-    });
+                // Itere sobre todos os setores e parceiros
+                setores.forEach(setor => {
+                    // Obtenha o texto do <span> dentro do setor ou parceiro
+                    const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
 
-    // Filtro por dropdown
-    dropdownContent.addEventListener('click', function (event) {
-        if (event.target.tagName === 'A') {
-            const filterValue = event.target.dataset.text;
-            setorFilter.value = event.target.textContent;
-            const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
-            
-            setores.forEach(setor => {
-                const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
-                if (spanText.includes(filterValue)) {
-                    setor.style.display = 'flex'; // Exibe se corresponder ao filtro
-                } else {
-                    setor.style.display = 'none'; // Oculta se não corresponder ao filtro
-                }
+                    // Verifique se o texto do setor ou parceiro contém o valor do filtro
+                    if (spanText.includes(filterValue)) {
+                        setor.style.display = 'flex'; // Exibe se corresponder ao filtro
+                    } else {
+                        setor.style.display = 'none'; // Oculta se não corresponder ao filtro
+                    }
+                });
             });
-        }
-    });
-});
+        });
