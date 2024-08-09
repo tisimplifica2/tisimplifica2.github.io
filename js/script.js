@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
+    
+
     // Alternar a visibilidade dos funcionários do setor de gestão
     const gestaoLink = document.getElementById('gestao-link');
     const gestaoEstagiarios = document.getElementById('gestao-estagiarios');

@@ -22,6 +22,7 @@ body {
     align-items: flex-start;
     position: center;
     width: 100%;
+    margin-left: 80px;
     min-width: 2000px;
     height: auto;
 }
@@ -137,6 +138,18 @@ body {
     margin-right: -10px;
 }
 
+.node-link-chefe {
+    margin-top: -160px;
+    margin-left: 25px;
+    display: flex;
+    position: absolute;
+}
+
+.tree-root-general {
+    margin-top: -15px;
+}
+
+
 .tree-node.gestao::before {
     content: '';
     position: absolute;
@@ -200,16 +213,16 @@ body {
     text-decoration: none;
     background: #fff;
     transition: .5s;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
 }
 
 .tree li a img {
-    width: 70px;
-    height: 80px;
+    width: 60px;
+    height: 70px;
     margin-bottom: 7px !important;
     border-radius: 30%;
     margin: auto;
