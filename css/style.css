@@ -125,7 +125,6 @@ body {
     height: auto;
     white-space: nowrap;
     justify-content: center;
-    /* Centraliza os itens filhos */
 }
 
 .tree li {
@@ -140,7 +139,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Ajuste o estilo das linhas de conexão dos itens */
 .tree li::before,
 .tree li::after {
     content: '';
@@ -317,7 +315,7 @@ body {
     padding: 10px;
     display: inline-flex;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 10px;
     text-decoration: none;
     background: #fff;
     transition: .5s;
@@ -332,6 +330,7 @@ body {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de tamanho igual */
         gap: 10px; /* Espaçamento entre os itens */
+        margin-left: 500px;
         margin-top: 10px; /* Espaçamento superior opcional */
         min-width: 150px; /* Largura mínima para os itens */
         box-sizing: border-box;
@@ -345,10 +344,6 @@ body {
     margin: auto;
 }
 
-.setor-filtrado {
-    position: absolute;
-    top: -150%;
-}
 
 .tree li a span {
     border: 1px solid #ccc;
