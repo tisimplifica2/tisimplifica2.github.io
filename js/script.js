@@ -139,11 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    const reloadBtn = document.getElementById('reload-btn');
-    reloadBtn.addEventListener('click', function () {
-        location.reload();
-    });
-
     // Filtro por dropdown
     dropdownContent.addEventListener('click', function (event) {
         if (event.target.tagName === 'A') {
@@ -178,8 +173,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     setor.classList.add('setor-filtrado'); // Adiciona a classe para centralização
                     centralizarSetor(setor);
-                } else {
-                    setor.closest('.tree-node').style.display = 'none';
                 }
             });
 
@@ -217,5 +210,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mostrar/Esconder o dropdown
     document.getElementById('setor-filter').addEventListener('click', function () {
         dropdownContent.classList.toggle('show');
+    });
+
+    // Botão de recarregar
+    const reloadBtn = document.getElementById('reload-btn');
+    reloadBtn.addEventListener('click', function () {
+        location.reload();
     });
 });
