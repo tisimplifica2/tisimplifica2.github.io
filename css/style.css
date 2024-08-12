@@ -73,6 +73,24 @@ body {
     display: block;
 }
 
+#reload-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+#reload-btn:hover {
+    color: #007bff; /* Altere para a cor desejada */
+}
+
+.icon {
+    display: flex;
+    font-size: 25px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
 .container {
     transform: scale(0.68); /* Reduz o zoom para 80% */
     transform-origin: 0 0; /* Define o ponto de origem da transformação no canto superior esquerdo */
@@ -317,7 +335,7 @@ body {
     flex-direction: column;
     border-radius: 10px;
     text-decoration: none;
-    background: #fff;
+    background: #b7dcee;
     transition: .5s;
     width: 140px;
     height: 165px;
@@ -386,7 +404,7 @@ body {
 }
 
 .node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
-    background: #c8e4f8;
+    background: rgb(108, 195, 222);
     color: #000;
     border: 1px solid #94a0b4;
 }
@@ -482,7 +500,7 @@ body {
 
 
 .parceiro-setor .node-link {
-    background-color: #b7dcee; /* Cor de fundo */
+    background-color: #fff; /* Cor de fundo */
     border: 1px solid #06050553; /* Cor da borda */
     color: #000; /* Cor do texto */
 }

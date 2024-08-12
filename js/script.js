@@ -227,6 +227,11 @@ document.addEventListener('DOMContentLoaded', function () {
         container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
 
+    const reloadBtn = document.getElementById('reload-btn');
+    reloadBtn.addEventListener('click', function () {
+        location.reload();
+    });
+
     // Abrir o dropdown ao clicar no botão
     const dropdownBtn = document.getElementById('dropdown-btn');
     dropdownBtn.addEventListener('click', function () {
