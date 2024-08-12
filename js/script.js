@@ -99,24 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const filterValue = this.value.toLowerCase();
         const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
 
-        if (filterValue === '') {
-            // Se o campo de filtro estiver vazio, mostrar tudo
-            document.querySelectorAll('.tree-node').forEach(node => {
-                node.style.display = 'flex';
-                const childNodes = node.querySelectorAll('.tree-node');
-                childNodes.forEach(child => {
-                    child.style.display = 'flex';
-                });
-            });
-
-            document.querySelectorAll('.tree-children').forEach(node => {
-                if (node.textContent.includes('Murilo')) {
-                    node.style.display = 'none';
-                }
-            });
-            return;
-        }
-
         // Reinicializar a visibilidade dos setores e seus filhos
         document.querySelectorAll('.tree-node').forEach(node => {
             node.style.display = 'none';
@@ -129,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const treeNode = setor.closest('.tree-node');
                 treeNode.style.display = 'flex';
 
-                // Exibir todos os filhos do setor abaixo dele
+                // Exibir todos os filhos do setor
                 const childNodes = treeNode.querySelectorAll('.tree-node');
                 childNodes.forEach(child => {
                     child.style.display = 'flex';
@@ -157,6 +139,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    const reloadBtn = document.getElementById('reload-btn');
+    reloadBtn.addEventListener('click', function () {
+        location.reload();
+    });
+
     // Filtro por dropdown
     dropdownContent.addEventListener('click', function (event) {
         if (event.target.tagName === 'A') {
@@ -176,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const treeNode = setor.closest('.tree-node');
                     treeNode.style.display = 'flex';
 
-                    // Exibir todos os filhos do setor abaixo dele
+                    // Exibir todos os filhos do setor
                     const childNodes = treeNode.querySelectorAll('.tree-node');
                     childNodes.forEach(child => {
                         child.style.display = 'flex';
@@ -227,21 +214,8 @@ document.addEventListener('DOMContentLoaded', function () {
         container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
 
-    const reloadBtn = document.getElementById('reload-btn');
-    reloadBtn.addEventListener('click', function () {
-        location.reload();
-    });
-
-    // Abrir o dropdown ao clicar no botão
-    const dropdownBtn = document.getElementById('dropdown-btn');
-    dropdownBtn.addEventListener('click', function () {
+    // Mostrar/Esconder o dropdown
+    document.getElementById('setor-filter').addEventListener('click', function () {
         dropdownContent.classList.toggle('show');
-    });
-
-    // Fechar o dropdown se clicar fora dele
-    document.addEventListener('click', function (event) {
-        if (!dropdownContent.contains(event.target) && event.target !== dropdownBtn) {
-            dropdownContent.classList.remove('show');
-        }
     });
 });
