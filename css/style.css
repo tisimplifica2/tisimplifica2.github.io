@@ -364,7 +364,7 @@ body {
 
 
 .tree li a span {
-    border: 1px solid #ccc;
+    border: 1px solid #5f646e;
     border-radius: 5px;
     color: #000000;
     padding: 8px;
@@ -393,20 +393,20 @@ body {
 .tree li a:hover+ul li a {
     background: #c8e4f8;
     color: #000;
-    border: 1px solid #94a0b4;
+    border: 1px solid #5f646e;
 }
 
 .tree li a:hover+ul li::after,
 .tree li a:hover+ul li::before,
 .tree li a:hover+ul::before,
 .tree li a:hover+ul ul::before {
-    border-color: #94a0b4;
+    border-color: #5f646e;
 }
 
 .node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
     background: rgb(108, 195, 222);
     color: #000;
-    border: 1px solid #94a0b4;
+    border: 1px solid #5f646e;
 }
 
 .menu {
