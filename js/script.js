@@ -1,15 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Ocultar inicialmente todos os setores e funcionários
+    // Ocultar inicialmente todos os setores, funcionários, estagiários, coordenadores e "Murilo"
     document.querySelectorAll('.funcionarios').forEach(funcionarios => {
         funcionarios.style.display = 'none';
     });
 
-    // Ocultar inicialmente estagiários e coordenadores
     document.querySelectorAll('.gestao-estagiarios').forEach(el => {
         el.style.display = 'none';
     });
     document.querySelectorAll('.coordenadores').forEach(el => {
         el.style.display = 'none';
+    });
+
+    // Esconder o nó que contém o "Murilo" inicialmente
+    document.querySelectorAll('.tree-children').forEach(node => {
+        if (node.textContent.includes('Murilo')) {
+            node.style.display = 'none';
+        }
     });
 
     // Alternar a visibilidade dos funcionários no setor
@@ -39,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gestaoCoordenadores.style.display = isCoordenadoresVisible ? 'none' : 'flex';
     });
 
+    // Alternar a visibilidade dos sub-funcionários
     document.querySelectorAll('.node-link.funcionario').forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
@@ -55,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
             const estagiarios = this.closest('li.tree-node').querySelector('.funcionarios');
             if (estagiarios) {
-                // Alterna a visibilidade dos estagiários
                 const isEstagiariosVisible = estagiarios.style.display === 'flex' || estagiarios.style.display === 'block';
                 estagiarios.style.display = isEstagiariosVisible ? 'none' : 'flex';
             }
@@ -66,59 +72,87 @@ document.addEventListener('DOMContentLoaded', function () {
     const mostrarTudoBtn = document.getElementById('mostrar-tudo');
     
     mostrarTudoBtn.addEventListener('click', function () {
-
-        document.querySelectorAll('.funcionarios').forEach(funcionarios => {
-            funcionarios.style.display = 'flex';
-        });
-        
-        // Mostrar todos os estagiários e coordenadores
         document.querySelectorAll('.gestao-estagiarios').forEach(el => {
             el.style.display = 'flex';
         });
         document.querySelectorAll('.coordenadores').forEach(el => {
             el.style.display = 'flex';
         });
-        
-        // Mostrar todos os sub-funcionários
+
+        document.querySelectorAll('.funcionarios').forEach(funcionarios => {
+            funcionarios.style.display = 'flex';
+        });
+
+        // Mostrar todos os sub-funcionários, exceto o Murilo
         document.querySelectorAll('.sub-funcionarios').forEach(el => {
-            el.style.display = 'flex';
+            if (!el.querySelector('.node-link').textContent.includes('Murilo')) {
+                el.style.display = 'flex';
+            }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
+    // Filtro por texto
     const setorFilter = document.getElementById('setor-filter');
     const dropdownContent = document.getElementById('dropdown-content');
 
-    // Preencher o dropdown com opções
-    function populateDropdown() {
-        const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
-        setores.forEach(setor => {
-            const spanText = setor.querySelector('span.node-label').textContent;
-            const option = document.createElement('a');
-            option.href = '#';
-            option.textContent = spanText;
-            option.dataset.text = spanText.toLowerCase();
-            dropdownContent.appendChild(option);
-        });
-    }
-
-    populateDropdown();
-
-    // Filtro por texto
     setorFilter.addEventListener('input', function () {
         const filterValue = this.value.toLowerCase();
         const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
-        
+
+        if (filterValue === '') {
+            // Se o campo de filtro estiver vazio, mostrar tudo
+            document.querySelectorAll('.tree-node').forEach(node => {
+                node.style.display = 'flex';
+                const childNodes = node.querySelectorAll('.tree-node');
+                childNodes.forEach(child => {
+                    child.style.display = 'flex';
+                });
+            });
+
+            document.querySelectorAll('.tree-children').forEach(node => {
+                if (node.textContent.includes('Murilo')) {
+                    node.style.display = 'none';
+                }
+            });
+            return;
+        }
+
+        // Reinicializar a visibilidade dos setores e seus filhos
+        document.querySelectorAll('.tree-node').forEach(node => {
+            node.style.display = 'none';
+        });
+
         setores.forEach(setor => {
             const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
             if (spanText.includes(filterValue)) {
-                setor.style.display = 'flex'; // Exibe se corresponder ao filtro
+                // Exibe setor e seus filhos
+                const treeNode = setor.closest('.tree-node');
+                treeNode.style.display = 'flex';
+
+                // Exibir todos os filhos do setor abaixo dele
+                const childNodes = treeNode.querySelectorAll('.tree-node');
+                childNodes.forEach(child => {
+                    child.style.display = 'flex';
+                });
+
+                // Exibir os elementos pais para manter a estrutura visível
+                let parentNode = treeNode.parentElement.closest('.tree-node');
+                while (parentNode) {
+                    parentNode.style.display = 'flex';
+                    parentNode = parentNode.parentElement.closest('.tree-node');
+                }
+
                 setor.classList.add('setor-filtrado'); // Adiciona a classe para centralização
                 centralizarSetor(setor);
             } else {
-                setor.style.display = 'none'; // Oculta se não corresponder ao filtro
-                setor.classList.remove('setor-filtrado');
+                setor.closest('.tree-node').style.display = 'none';
+            }
+        });
+
+        // Garantir que o "Murilo" permaneça oculto mesmo após o filtro
+        document.querySelectorAll('.tree-children').forEach(node => {
+            if (node.textContent.includes('Murilo')) {
+                node.style.display = 'none';
             }
         });
     });
@@ -126,28 +160,83 @@ document.addEventListener('DOMContentLoaded', function () {
     // Filtro por dropdown
     dropdownContent.addEventListener('click', function (event) {
         if (event.target.tagName === 'A') {
-            const filterValue = event.target.dataset.text;
+            const filterValue = event.target.dataset.text.toLowerCase();
             setorFilter.value = event.target.textContent;
             const setores = document.querySelectorAll('.node-link.setor, .node-link.parceiro-setor');
-            
+
+            // Reinicializar a visibilidade dos setores e seus filhos
+            document.querySelectorAll('.tree-node').forEach(node => {
+                node.style.display = 'none';
+            });
+
             setores.forEach(setor => {
                 const spanText = setor.querySelector('span.node-label').textContent.toLowerCase();
                 if (spanText.includes(filterValue)) {
-                    setor.style.display = 'flex'; // Exibe se corresponder ao filtro
+                    // Exibe setor e seus filhos
+                    const treeNode = setor.closest('.tree-node');
+                    treeNode.style.display = 'flex';
+
+                    // Exibir todos os filhos do setor abaixo dele
+                    const childNodes = treeNode.querySelectorAll('.tree-node');
+                    childNodes.forEach(child => {
+                        child.style.display = 'flex';
+                    });
+
+                    // Exibir os elementos pais para manter a estrutura visível
+                    let parentNode = treeNode.parentElement.closest('.tree-node');
+                    while (parentNode) {
+                        parentNode.style.display = 'flex';
+                        parentNode = parentNode.parentElement.closest('.tree-node');
+                    }
+
                     setor.classList.add('setor-filtrado'); // Adiciona a classe para centralização
                     centralizarSetor(setor);
                 } else {
-                    setor.style.display = 'none'; // Oculta se não corresponder ao filtro
-                    setor.classList.remove('setor-filtrado');
+                    setor.closest('.tree-node').style.display = 'none';
                 }
             });
+
+            // Garantir que o "Murilo" permaneça oculto mesmo após o filtro
+            document.querySelectorAll('.tree-children').forEach(node => {
+                if (node.textContent.includes('Murilo')) {
+                    node.style.display = 'none';
+                }
+            });
+
+            // Fechar o dropdown após selecionar uma opção
+            dropdownContent.classList.remove('show');
         }
     });
 
     // Função para centralizar o setor filtrado
     function centralizarSetor(setor) {
-        document.querySelectorAll('.container').forEach(node => {
-            node.style.left = '500%';
-        });
+        const container = document.querySelector('.container');
+        const treeNode = setor.closest('.tree-node');
+        const nodeRect = treeNode.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        // Ajuste os valores de margem conforme necessário
+        const margemHorizontal = 100; // Ajuste a margem horizontal
+        const margemVertical = 50; // Ajuste a margem vertical
+
+        // Centralizar horizontalmente com margem
+        const offsetX = (containerRect.width - nodeRect.width) / 2 - (nodeRect.left - containerRect.left) + margemHorizontal;
+        // Centralizar verticalmente com margem
+        const offsetY = (containerRect.height - nodeRect.height) / 2 - (nodeRect.top - containerRect.top) + margemVertical;
+
+        container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
+
+    // Abrir o dropdown ao clicar no botão
+    const dropdownBtn = document.getElementById('dropdown-btn');
+    dropdownBtn.addEventListener('click', function () {
+        dropdownContent.classList.toggle('show');
+    });
+
+    // Fechar o dropdown se clicar fora dele
+    document.addEventListener('click', function (event) {
+        if (!dropdownContent.contains(event.target) && event.target !== dropdownBtn) {
+            dropdownContent.classList.remove('show');
+        }
+    });
 });
