@@ -98,7 +98,7 @@ body {
     align-items: flex-start;
     position: center;
     width: 100%;
-    margin-left: 400px;
+    margin-left: 200px;
     min-width: 2000px;
     height: auto;
 }
@@ -453,4 +453,23 @@ body {
     text-decoration: none;
     font-weight: bold;
     color: black;
+}
+
+
+.setor-separado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -176px;
+    margin-right: 200px;
+}
+
+.setor-separado .line {
+    position: absolute;
+    background-color: #ccc;
+    height: 2px;
+    width: 619px;
+    top: -50px;
+    left: -200px;
 }
