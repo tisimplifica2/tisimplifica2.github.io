@@ -98,7 +98,7 @@ body {
     align-items: flex-start;
     position: center;
     width: 100%;
-    margin-left: 500px;
+    margin-left: 400px;
     min-width: 2000px;
     height: auto;
 }
@@ -269,7 +269,7 @@ body {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 2px; /* Largura da linha */
+    width: 10px; /* Largura da linha */
     height: 500px; /* Altura total da seção */
     background-color: #ccc; /* Cor da linha */
     z-index: -1; /* Fica atrás dos outros elementos */
@@ -314,11 +314,16 @@ body {
 }
 
 .tree-node-gestao-setor {
-    margin-left: -10px;
+    margin-left: 10px;
 }
 
 .tree-root-gestao {
-    margin-left: -600px;
+    margin-left: 100px;
+    height: 300px;
+}
+
+.tree-root {
+    height: 300px;
 }
 
 .tree-root-diretor {
@@ -352,8 +357,8 @@ body {
     text-decoration: none;
     background: #b7dcee;
     transition: .5s;
-    width: 140px;
-    height: 165px;
+    width: 200px;
+    height: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
@@ -370,8 +375,8 @@ body {
 }
 
 .tree li a img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 12px !important;
     border-radius: 30%;
     margin: auto;
