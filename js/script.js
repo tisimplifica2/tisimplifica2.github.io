@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Botão de recarregar a página
+    const reloadBtn = document.getElementById('reload-btn');
+    reloadBtn.addEventListener('click', function () {
+        location.reload();
+    });
+
     // Alternar a visibilidade dos funcionários do setor de gestão
     const gestaoLink = document.getElementById('gestao-link');
     const gestaoEstagiarios = document.getElementById('gestao-estagiarios');
@@ -91,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
     // Filtro por texto
     const setorFilter = document.getElementById('setor-filter');
     const dropdownContent = document.getElementById('dropdown-content');
@@ -111,8 +118,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const treeNode = setor.closest('.tree-node');
                 treeNode.style.display = 'flex';
 
-                // Exibir todos os filhos do setor
-                const childNodes = treeNode.querySelectorAll('.tree-node');
+                // Exibir todos os filhos do setor, funcionários e coordenadores
+                const childNodes = treeNode.querySelectorAll('.tree-node, .funcionarios, .coordenadores');
                 childNodes.forEach(child => {
                     child.style.display = 'flex';
                 });
@@ -126,8 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 setor.classList.add('setor-filtrado'); // Adiciona a classe para centralização
                 centralizarSetor(setor);
-            } else {
-                setor.closest('.tree-node').style.display = 'none';
             }
         });
 
@@ -158,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const treeNode = setor.closest('.tree-node');
                     treeNode.style.display = 'flex';
 
-                    // Exibir todos os filhos do setor
-                    const childNodes = treeNode.querySelectorAll('.tree-node');
+                    // Exibir todos os filhos do setor, funcionários e coordenadores
+                    const childNodes = treeNode.querySelectorAll('.tree-node, .funcionarios, .coordenadores');
                     childNodes.forEach(child => {
                         child.style.display = 'flex';
                     });
@@ -206,15 +211,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
-
-    // Mostrar/Esconder o dropdown
-    document.getElementById('setor-filter').addEventListener('click', function () {
-        dropdownContent.classList.toggle('show');
-    });
-
-    // Botão de recarregar
-    const reloadBtn = document.getElementById('reload-btn');
-    reloadBtn.addEventListener('click', function () {
-        location.reload();
-    });
 });

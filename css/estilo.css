@@ -1,0 +1,21 @@
+.titulo-principal {
+    display: flex;
+    position: relative;
+    margin-top: 130px;
+    margin-left: 150px;
+}
+
+.paragrafos {
+    text-align: left;
+    display: flex;
+    width: 1500px;
+    flex-wrap: wrap;
+    margin-left: 120px;
+    margin-top: 20px;
+    font-size: 23px;
+    padding: 30px;
+}
+
+.paragrafos h2 {
+    font-size: 26px;
+}

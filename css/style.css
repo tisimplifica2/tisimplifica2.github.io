@@ -127,6 +127,20 @@ body {
     display: flex;
 }
 
+.simplifica-logo {
+    position: absolute;
+    display: flex;
+    align-items: left;
+}
+
+.simplifica-logo img {
+    width: 100px;
+    height: auto;
+    margin-left: 20px;
+    margin-top: -15px;
+}
+
+
 .tree {
     margin-top: 100px;
     display: flex;
@@ -362,6 +376,28 @@ body {
     margin: auto;
 }
 
+.setor-filtrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Permite que o setor ocupe toda a largura disponível */
+    padding: 20px; /* Adiciona espaçamento interno ao redor do setor */
+}
+
+.setor-filtrado .funcionarios,
+.setor-filtrado .coordenadores {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os funcionários/coordenadores se movam para a próxima linha se necessário */
+    justify-content: center; /* Centraliza horizontalmente os filhos */
+    margin-top: 20px; /* Espaçamento entre o setor e seus filhos */
+    gap: 10px; /* Espaçamento entre funcionários/coordenadores */
+}
+
+.setor-filtrado .funcionarios .tree-node,
+.setor-filtrado .coordenadores .tree-node {
+    flex: 1 1 200px; /* Cada funcionário/coordenador ocupará pelo menos 200px e se ajustará conforme o espaço disponível */
+    text-align: center;
+}
 
 .tree li a span {
     border: 1px solid #5f646e;
@@ -414,7 +450,8 @@ body {
     width: 100%;
     height: 90px;
     top: 0;
-    background-color: rgb(28, 139, 172);
+    background: linear-gradient(to top, rgba(88, 204, 239, 0.512), rgb(114, 212, 247));
+    background-color: rgb(122, 165, 181);
     display: flex;
     z-index: 1000;
 }
@@ -431,7 +468,7 @@ body {
 }
 
 .menu-item>a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-size: 20px;
     padding: 30px;
@@ -441,7 +478,7 @@ body {
 }
 
 .menu-item>a:hover {
-    background-color: #0056b3;
+    background-color: #5388c0;
 }
 
 .menu-item ul {
