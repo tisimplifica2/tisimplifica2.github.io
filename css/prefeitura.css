@@ -29,6 +29,17 @@ body {
     margin-left: 30px;
 }
 
+.setor-separado {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    position: relative;
+    margin-top: -200px;
+    margin-right: 200px;
+    cursor: default !important;
+}
+
 .dropbtn {
     background-color: #007bff; /* Cor de fundo azul */
     color: white; /* Cor do texto */
@@ -474,16 +485,6 @@ ul.funcionarios, ul.coordenadores {
     color: black;
 }
 
-
-.setor-separado {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    align-items: center;
-    position: relative;
-    margin-top: -200px;
-    margin-right: 200px;
-}
 
 .line {
     position: absolute;

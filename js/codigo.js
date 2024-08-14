@@ -27,3 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    // Mostrar estagiários ao clicar em um coordenador
+    document.querySelectorAll('.coordenadores .node-link').forEach(coordenador => {
+        coordenador.addEventListener('click', function (event) {
+            event.preventDefault();
+            const estagiarios = this.closest('li.tree-node').querySelector('.funcionarios');
+            if (estagiarios) {
+                const isEstagiariosVisible = estagiarios.style.display === 'flex' || estagiarios.style.display === 'block';
+                estagiarios.style.display = isEstagiariosVisible ? 'none' : 'flex';
+            }
+        });
+    });
