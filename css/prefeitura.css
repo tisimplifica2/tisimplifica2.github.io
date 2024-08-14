@@ -355,7 +355,8 @@ body {
     flex-direction: column;
     border-radius: 10px;
     text-decoration: none;
-    background: #b7dcee;
+    background-color: #b7dcee;
+    background: linear-gradient(to top, rgba(79, 185, 218, 0.512), rgb(55, 157, 194));
     transition: .5s;
     width: 200px;
     height: 220px;
@@ -411,7 +412,8 @@ body {
     flex-direction: column;
     border-radius: 10px;
     text-decoration: none;
-    background: #b7dcee;
+    background-color: #b7dcee;
+    background: linear-gradient(to top, rgba(79, 185, 218, 0.512), rgb(55, 157, 194));
     transition: .5s;
     width: 140px;
     height: 165px;
