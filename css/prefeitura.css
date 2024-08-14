@@ -478,9 +478,10 @@ ul.funcionarios, ul.coordenadores {
 .setor-separado {
     display: flex;
     justify-content: center;
+    position: absolute;
     align-items: center;
     position: relative;
-    margin-top: -176px;
+    margin-top: -200px;
     margin-right: 200px;
 }
 
@@ -489,6 +490,6 @@ ul.funcionarios, ul.coordenadores {
     background-color: #ccc;
     height: 2px;
     width: 619px;
-    top: -20px;
+    top: -5px;
     left: -200px;
 }
