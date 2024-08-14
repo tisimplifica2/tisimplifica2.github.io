@@ -92,13 +92,13 @@ body {
 }
 
 .container {
-    transform: scale(1); /* Reduz o zoom para 80% */
+    transform: scale(0.8); /* Reduz o zoom para 80% */
     transform-origin: 0 0; /* Define o ponto de origem da transformação no canto superior esquerdo */
     display: flex;
     align-items: flex-start;
     position: center;
     width: 100%;
-    margin-left: 400px;
+    margin-left: 350px;
     min-width: 2000px;
     height: auto;
 }
