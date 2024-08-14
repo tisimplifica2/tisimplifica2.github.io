@@ -350,7 +350,7 @@ body {
     border-radius: 10px;
     text-decoration: none;
     background-color: #b7dcee;
-    background: linear-gradient(to top, rgba(79, 185, 218, 0.512), rgb(55, 157, 194));
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.734), rgb(114, 212, 247));
     transition: .5s;
     width: 140px;
     height: 165px;
@@ -428,9 +428,10 @@ body {
 .tree li a:hover i,
 .tree li a:hover span,
 .tree li a:hover+ul li a {
-    background: #c8e4f8;
-    color: #000;
-    border: 1px solid #5f646e;
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
 }
 
 .tree li a:hover+ul li::after,
@@ -539,7 +540,7 @@ body {
 
 .parceiro-setor .node-link {
     background-color: #fff; /* Cor de fundo */
-    background: #fff;
+    background: linear-gradient(to top, rgba(160, 153, 153, 0.734), rgb(251, 251, 251));
     border: 1px solid #06050553; /* Cor da borda */
     color: #000; /* Cor do texto */
 }

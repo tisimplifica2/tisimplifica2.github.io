@@ -98,7 +98,7 @@ body {
     align-items: flex-start;
     position: center;
     width: 100%;
-    margin-left: 200px;
+    margin-left: 400px;
     min-width: 2000px;
     height: auto;
 }
@@ -143,6 +143,7 @@ body {
 
 .tree {
     margin-top: 200px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,6 +232,10 @@ body {
 
 .node-link.funcionario + .sub-funcionarios {
     display: none; /* Certifica que funcionários estão inicialmente ocultos */
+}
+
+ul.funcionarios, ul.coordenadores {
+    display: none;
 }
 
 /* Garantir que a grid se comporte como esperado */
@@ -331,12 +336,24 @@ body {
     position: relative;
 }
 
+.tree li a:hover,
+.tree li a:hover i,
+.tree li a:hover span,
+.tree li a:hover+ul li a {
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
+}
+
+
 #gestao-link:hover,
 #gestao-link:hover~.coordenadores .node-link,
 #gestao-link:hover~.coordenadores .node-link:hover,
 #gestao-link:hover~.gestao-estagiarios .node-link,
 #gestao-link:hover~.gestao-estagiarios .node-link:hover {
-    background: #c8e4f8;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    background-color: #ccc;
     color: #000;
     border: 1px solid #94a0b4;
 }
@@ -356,7 +373,7 @@ body {
     border-radius: 10px;
     text-decoration: none;
     background-color: #b7dcee;
-    background: linear-gradient(to top, rgba(79, 185, 218, 0.512), rgb(55, 157, 194));
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.734), rgb(114, 212, 247));
     transition: .5s;
     width: 200px;
     height: 220px;
@@ -467,11 +484,11 @@ body {
     margin-right: 200px;
 }
 
-.setor-separado .line {
+.line {
     position: absolute;
     background-color: #ccc;
     height: 2px;
     width: 619px;
-    top: -50px;
+    top: -20px;
     left: -200px;
 }
