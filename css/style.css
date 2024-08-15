@@ -459,7 +459,7 @@ body {
     position: relative;
 }
 
-.tree-node-matutino .tree-node-vespertino {
+.tree-node-matutino .tree-node-vespertino .parceiro-setor .tree-node-matutino .parceiro-setor .tree-node-vespertino {
     position: relative;
     display: flex;
     margin-top: 15px;
@@ -560,10 +560,17 @@ body {
 
 
 .parceiro-setor .node-link {
-    background-color: #fff; /* Cor de fundo */
     background: linear-gradient(to top, rgba(160, 153, 153, 0.734), rgb(251, 251, 251));
     border: 1px solid #06050553; /* Cor da borda */
     color: #000; /* Cor do texto */
+}
+
+.parceiro-setor .tree-node-vespertino .node-link {
+    background-color: #f1c40f; /* Amarelo para vespertino */
+    border-color: #f3d912;
+    background-color: #b7dcee;
+    display: flex;
+    position: relative;
 }
 
 .parceiro-setor .node-link:hover .node-label:hover {
