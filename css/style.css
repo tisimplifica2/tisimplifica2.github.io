@@ -214,7 +214,7 @@ body {
     left: 50%;
     border-left: 2px solid #ccc;
     width: 0;
-    height: 28px;
+    height: 16px;
     z-index: -1;
 }
 
@@ -245,12 +245,6 @@ body {
     text-align: center; /* Centraliza o conteúdo */
 }
 
-.tree-node {
-    position: relative;
-    display: flex;
-    margin-top: 10px;
-    margin-right: -10px;
-}
 
 .node-link-chefe {
     margin-top: -160px;
@@ -278,13 +272,8 @@ body {
 .funcionarios, .sub-funcionarios {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colunas de igual tamanho */
-    gap: 10px; /* Espaçamento entre os itens */
+    gap: 3px; /* Espaçamento entre os itens */
     width: 100%; /* Ocupa toda a largura disponível */
-}
-
-.funcionarios .tree-node, .sub-funcionários .tree-node {
-    min-width: 150px; /* Largura mínima */
-    text-align: center; /* Centraliza o conteúdo */
 }
 
 .coordenadores {
@@ -353,11 +342,12 @@ body {
     background: linear-gradient(to top, rgba(255, 255, 255, 0.734), rgb(114, 212, 247));
     transition: .5s;
     width: 140px;
-    height: 165px;
+    height: 185px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
 }
+
 
 .tree li a .funcionarios {
         display: grid;
@@ -469,6 +459,28 @@ body {
     position: relative;
 }
 
+.tree-node-matutino .tree-node-vespertino {
+    position: relative;
+    display: flex;
+    margin-top: 15px;
+    margin-right: -10px;
+}
+
+
+.tree-node-matutino .node-link {
+    background-color: #40d487; /* Azul claro para matutino */
+    border-color: #057709;
+    display: flex;
+    position: relative;
+}
+
+.tree-node-vespertino .node-link {
+    background-color: #f1c40f; /* Amarelo para vespertino */
+    border-color: #f3d912;
+    display: flex;
+    position: relative;
+}
+
 .menu-item>a {
     color: #000000;
     text-decoration: none;
@@ -511,6 +523,15 @@ body {
     display: block;
     border-radius: 5px;
     transition: background-color 0.3s;
+}
+
+.node-label-turno  {
+    color: black;
+    margin-top: -5px;
+}
+
+.node-label-turno  p{
+    font-size: 2px;
 }
 
 .menu-item ul li a:hover {
