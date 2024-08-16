@@ -219,9 +219,10 @@ body {
 }
 
 .node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
-    background: #c8e4f8;
-    color: #000;
-    border: 1px solid #94a0b4;
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
 }
 
 .node-link.setor + .funcionarios {
@@ -279,20 +280,18 @@ body {
 .coordenadores {
     display: flex;
     justify-content: center;
-    gap: 20px;
     position: relative;
 }
 
 .coordenadores-setor {
     display: flex;
     justify-content: center;
-    gap: 20px;
     position: relative;
 }
 
 .gestao-estagiarios {
     display: flex;
-    gap: 10px;
+    gap: 1px;
     position: relative;
     margin-top: 10px;
 }
@@ -319,16 +318,18 @@ body {
 #gestao-link:hover~.coordenadores .node-link:hover,
 #gestao-link:hover~.gestao-estagiarios .node-link,
 #gestao-link:hover~.gestao-estagiarios .node-link:hover {
-    background: #c8e4f8;
-    color: #000;
-    border: 1px solid #94a0b4;
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
 }
 
 .coordenadores:hover~.gestao-estagiarios .node-link,
 .coordenadores:hover~.gestao-estagiarios .node-link:hover {
-    background: #c8e4f8;
-    color: #000;
-    border: 1px solid #94a0b4;
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
 }
 
 .tree li a {
@@ -432,9 +433,10 @@ body {
 }
 
 .node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
-    background: rgb(108, 195, 222);
-    color: #000;
-    border: 1px solid #5f646e;
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
 }
 
 .menu {
