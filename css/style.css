@@ -565,10 +565,18 @@ body {
     color: #000; /* Cor do texto */
 }
 
+.parceiro-setor .tree-node-matutino .node-link {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.734), rgb(114, 212, 247));
+    background-color: #40d487; /* Azul claro para matutino */
+    border-color: #057709;
+    display: flex;
+    position: relative;
+}
+
 .parceiro-setor .tree-node-vespertino .node-link {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.734), rgb(114, 212, 247));
     background-color: #f1c40f; /* Amarelo para vespertino */
     border-color: #f3d912;
-    background-color: #b7dcee;
     display: flex;
     position: relative;
 }
