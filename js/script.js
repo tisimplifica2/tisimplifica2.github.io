@@ -212,3 +212,19 @@ document.addEventListener('DOMContentLoaded', function () {
         container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
 });
+
+function filtrar(turno) {
+    const matutinoNodes = document.querySelectorAll('.tree-node-matutino');
+    const vespertinoNodes = document.querySelectorAll('.tree-node-vespertino');
+
+    if (turno === 'matutino') {
+        matutinoNodes.forEach(node => node.style.display = 'block');
+        vespertinoNodes.forEach(node => node.style.display = 'none');
+    } else if (turno === 'vespertino') {
+        matutinoNodes.forEach(node => node.style.display = 'none');
+        vespertinoNodes.forEach(node => node.style.display = 'block');
+    } else {
+        matutinoNodes.forEach(node => node.style.display = 'block');
+        vespertinoNodes.forEach(node => node.style.display = 'block');
+    }
+}

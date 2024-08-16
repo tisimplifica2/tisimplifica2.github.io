@@ -218,6 +218,36 @@ body {
     z-index: -1;
 }
 
+.filtro-botoes button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+
+
+.btn-matutino {
+    color: #fff;
+    background-color: rgb(10, 106, 10);
+}
+
+.btn-vespertino {
+    color: #fff;
+    background-color: rgb(132, 126, 14);
+}
+
+.btn-todos {
+    color: #fff;
+    background-color: rgb(84, 153, 179);
+}
+
+.tree-node-vespertino .tree-node-matutino {
+    display: none;
+}
+
 .node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
     background-color: #ccc;
     background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
