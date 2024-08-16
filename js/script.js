@@ -214,17 +214,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function filtrar(turno) {
+    // Seleciona todos os nós de funcionários
     const matutinoNodes = document.querySelectorAll('.tree-node-matutino');
     const vespertinoNodes = document.querySelectorAll('.tree-node-vespertino');
 
+    // Primeiro, esconda todos os nós
+    matutinoNodes.forEach(node => node.style.display = 'none');
+    vespertinoNodes.forEach(node => node.style.display = 'none');
+
+    // Depois, mostre os que correspondem ao turno selecionado
     if (turno === 'matutino') {
-        matutinoNodes.forEach(node => node.style.display = 'block');
-        vespertinoNodes.forEach(node => node.style.display = 'none');
+        matutinoNodes.forEach(node => node.style.display = 'inline-block');
     } else if (turno === 'vespertino') {
-        matutinoNodes.forEach(node => node.style.display = 'none');
-        vespertinoNodes.forEach(node => node.style.display = 'block');
+        vespertinoNodes.forEach(node => node.style.display = 'inline-block');
     } else {
-        matutinoNodes.forEach(node => node.style.display = 'block');
-        vespertinoNodes.forEach(node => node.style.display = 'block');
+        // Se for 'todos', mostre todos
+        matutinoNodes.forEach(node => node.style.display = 'inline-block');
+        vespertinoNodes.forEach(node => node.style.display = 'inline-block');
     }
 }
