@@ -302,3 +302,20 @@ function imprimirRelatorio(turno) {
     janelaImpressao.document.close();
     janelaImpressao.print();
 }
+
+document.querySelector('.abrir-filtro').addEventListener('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation(); // Impede que o clique no link feche o menu principal
+
+    var filtroMenu = document.querySelector('.filtro-menu');
+    filtroMenu.style.display = filtroMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Fecha o menu de filtro quando clicado fora dele
+document.addEventListener('click', function(event) {
+    var isClickInsideMenu = document.querySelector('.dropdown-hamburguer').contains(event.target);
+
+    if (!isClickInsideMenu) {
+        document.querySelector('.filtro-menu').style.display = 'none';
+    }
+});

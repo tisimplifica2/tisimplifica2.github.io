@@ -30,26 +30,43 @@
     <div class="titulo-page">
         <h1>Organograma - Simplifica Timbó</h1>
     </div>
-    <button id="mostrar-tudo">Mostrar Tudo</button>
-    <input type="text" id="setor-filter" placeholder="🔍 Filtrar setores...">
-
-    <button id="reload-btn" title="Recarregar página">
-        <span class="icon">🔄</span>
-    </button>
-    <div class="filtro-botoes">
-        <button class="btn-matutino" onclick="filtrar('matutino')">☀️ Matutino</button>
-        <button class="btn-vespertino" onclick="filtrar('vespertino')">🌇 Vespertino</button>
-        <button class="btn-todos" onclick="filtrar('todos')">📅 Todos</button>
-    </div>
-    <div class="botao-imprimir">
-        <button class="btn-imprimir">🖨️ Imprimir Relatório</button>
     
-        <div class="dropdown-menu">
-            <a href="#" onclick="imprimirRelatorio('todos')">Todos</a>
-            <a href="#" onclick="imprimirRelatorio('matutino')">Matutino</a>
-            <a href="#" onclick="imprimirRelatorio('vespertino')">Vespertino</a>
+        <button id="reload-btn" title="Recarregar página">
+            <span class="icon">🔄</span>
+        </button>
+    
+        <div class="dropdown-hamburguer">
+            <div class="menu-hamburguer">
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+        
+            <div class="dropdown-conteudo">
+                <a href="#" class="abrir-filtro">Filtrar</a>
+                <div class="dropdown-submenu">
+                    <a href="#">Imprimir Relatório</a>
+                    <div class="submenu">
+                        <a href="#" onclick="imprimirRelatorio('todos')">Todos</a>
+                        <a href="#" onclick="imprimirRelatorio('matutino')">Matutino</a>
+                        <a href="#" onclick="imprimirRelatorio('vespertino')">Vespertino</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="filtro-menu">
+                <input type="text" id="setor-filter" placeholder="🔍 Filtrar setores...">
+                <button id="mostrar-tudo">Mostrar Tudo</button>
+                <div class="filtro-botoes">
+                    <button class="btn-matutino" onclick="filtrar('matutino')">☀️ Matutino</button>
+                    <button class="btn-vespertino" onclick="filtrar('vespertino')">🌇 Vespertino</button>
+                    <button class="btn-todos" onclick="filtrar('todos')">📅 Todos</button>
+                </div>
+
+            </div>
         </div>
     </div>
+
     <div class="container">
         <div class="tree">
             <ul class="tree-root">
