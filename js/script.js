@@ -233,3 +233,72 @@ function filtrar(turno) {
         vespertinoNodes.forEach(node => node.style.display = 'inline-block');
     }
 }
+
+function imprimirRelatorio(turno) {
+    const relatorio = [];
+    const setoresProcessados = new Set();  // Usado para rastrear setores já processados
+    let totalEstagiariosGeral = 0;  // Contador para o número total de estagiários
+
+    // Seleciona todos os setores
+    const setores = document.querySelectorAll('.node-link.setor, .parceiro-setor');
+
+    setores.forEach(setor => {
+        // Pega o nome do setor
+        const nomeSetor = setor.querySelector('.node-label')?.textContent.trim() || 'Nome do Setor Indefinido';
+
+        // Se o setor já foi processado, ignore
+        if (setoresProcessados.has(nomeSetor)) return;
+
+        // Adiciona o setor ao conjunto de setores processados
+        setoresProcessados.add(nomeSetor);
+
+        // Seleciona a lista de funcionários ou estagiários
+        let listaFuncionarios = setor.closest('.tree-node').querySelector('.funcionarios, .gestao-estagiarios');
+
+        let totalEstagiarios = 0;
+
+        if (listaFuncionarios) {
+            // Seleciona todos os estagiários dentro da lista de funcionários
+            const estagiariosMatutino = listaFuncionarios.querySelectorAll('.tree-node-matutino');
+            const estagiariosVespertino = listaFuncionarios.querySelectorAll('.tree-node-vespertino');
+
+            // Filtra os estagiários de acordo com a seleção
+            if (turno === 'matutino' || turno === 'todos') {
+                estagiariosMatutino.forEach(estagiario => {
+                    const nomeEstagiario = estagiario.querySelector('.node-label')?.textContent.trim() || 'Nome do Estagiário Indefinido';
+                    relatorio.push(`Setor: ${nomeSetor}, Estagiário: ${nomeEstagiario}, Turno: Matutino`);
+                    totalEstagiarios++;
+                });
+            }
+
+            if (turno === 'vespertino' || turno === 'todos') {
+                estagiariosVespertino.forEach(estagiario => {
+                    const nomeEstagiario = estagiario.querySelector('.node-label')?.textContent.trim() || 'Nome do Estagiário Indefinido';
+                    relatorio.push(`Setor: ${nomeSetor}, Estagiário: ${nomeEstagiario}, Turno: Vespertino`);
+                    totalEstagiarios++;
+                });
+            }
+        }
+
+        // Adiciona o total de estagiários embaixo do setor
+        if (totalEstagiarios > 0) {
+            relatorio.push(`Total de Estagiários no Setor ${nomeSetor}: ${totalEstagiarios}\n`);
+        }
+
+        // Atualiza o total geral de estagiários
+        totalEstagiariosGeral += totalEstagiarios;
+    });
+
+    // Adiciona o número total de estagiários no final do relatório
+    relatorio.push(`\nTOTAL DE ESTAGIÁRIOS: ${totalEstagiariosGeral}`);
+
+    // Converte o array para uma string para impressão
+    const relatorioTexto = relatorio.join('\n');
+    console.log(relatorioTexto);
+
+    // Abre uma nova janela para impressão
+    const janelaImpressao = window.open('', '', 'width=800,height=600');
+    janelaImpressao.document.write('<pre>' + relatorioTexto + '</pre>');
+    janelaImpressao.document.close();
+    janelaImpressao.print();
+}

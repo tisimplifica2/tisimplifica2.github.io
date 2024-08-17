@@ -41,6 +41,15 @@
         <button class="btn-vespertino" onclick="filtrar('vespertino')">🌇 Vespertino</button>
         <button class="btn-todos" onclick="filtrar('todos')">📅 Todos</button>
     </div>
+    <div class="botao-imprimir">
+        <button class="btn-imprimir">🖨️ Imprimir Relatório</button>
+    
+        <div class="dropdown-menu">
+            <a href="#" onclick="imprimirRelatorio('todos')">Todos</a>
+            <a href="#" onclick="imprimirRelatorio('matutino')">Matutino</a>
+            <a href="#" onclick="imprimirRelatorio('vespertino')">Vespertino</a>
+        </div>
+    </div>
     <div class="container">
         <div class="tree">
             <ul class="tree-root">
@@ -1102,6 +1111,7 @@
         </div>
     </div>
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 
 </html>
