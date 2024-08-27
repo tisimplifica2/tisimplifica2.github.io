@@ -490,7 +490,34 @@ ul.funcionarios, ul.coordenadores {
     position: absolute;
     background-color: #ccc;
     height: 2px;
-    width: 615px;
+    width: 613px;
     top: -5px;
-    left: -198px;
+    left: -190px;
+}
+
+.line-second {
+    position: absolute;
+    background-color: black;
+    height: 2px;
+    width: 304px;
+    top: -5px;
+    left: -194px;
+}
+
+.line-third {
+    position: absolute;
+    background-color: black;
+    height: 30px;
+    width: 2px;
+    top: -5px;
+    left: 108px;
+}
+
+.line-fourth {
+    position: absolute;
+    background-color: black;
+    height:42px;
+    width: 2px;
+    top: -45px;
+    left: -196px;
 }
