@@ -31,7 +31,7 @@ body {
     cursor: pointer;
     margin-right: 10px;
     margin-left: 600px;
-    margin-top: -40px;
+    margin-top: -60px;
     transition: color 0.3s ease;
 }
 
@@ -197,7 +197,7 @@ body {
 
 .menu-hamburguer {
     width: 30px;
-    margin-top: -10px;
+    margin-top: -5px;
     margin-left: 30px;
     position: absolute;
     cursor: pointer;
@@ -618,6 +618,13 @@ body {
 .titulo-page {
     margin-top: 100px;
     margin-left: 20px;
+}
+
+.titulo-page h2 {
+    color: rgb(56, 55, 55);
+    font-size: 14px;
+    font-style: italic;
+    margin-left: 5px;
 }
 
 #mostrar-tudo {
