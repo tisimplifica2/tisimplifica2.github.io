@@ -22,6 +22,9 @@
     margin-left: 450px;
 }
 
+.sub-coordenadores {
+    display: none; /* Ensure the sub-coordenadores are hidden initially */
+}
 
 .image-of-complex img {
     width: 800px;

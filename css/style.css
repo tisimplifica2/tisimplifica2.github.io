@@ -302,7 +302,7 @@ body {
 }
 
 
-.node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios {
+.node-link.setor:hover~.coordenadores .coordenador .gestao-estagiarios .sub-coordenadores{
     background-color: #ccc;
     background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
     color: #5100ff;
@@ -322,6 +322,18 @@ body {
     text-align: center; /* Centraliza o conteúdo */
 }
 
+.node-link.coordenador:hover + .sub-coordenadores {
+    display: block; /* Show the sub-coordenadores */
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179)); /* Blue gradient */
+    color: #5100ff; /* Change the text color */
+    border: 1px solid #4b4e55; /* Add border to highlight */
+}
+
+
+/* Apply hover effect for a more visual cue when hovering over sub-coordinators */
+.sub-coordenadores li:hover {
+    background-color: rgba(77, 196, 232, 0.2); /* Lighter blue when hovered */
+}
 
 .node-link-chefe {
     margin-top: -160px;
@@ -386,7 +398,9 @@ body {
 #gestao-link:hover~.coordenadores .node-link,
 #gestao-link:hover~.coordenadores .node-link:hover,
 #gestao-link:hover~.gestao-estagiarios .node-link,
-#gestao-link:hover~.gestao-estagiarios .node-link:hover {
+#gestao-link:hover~.gestao-estagiarios .node-link:hover, 
+#gestao-link:hover~.sub-coordenadores .node-link,
+#gestao-link:hover~.sub-coordenadores .node-link:hover {
     background-color: #ccc;
     background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
     color: #5100ff;
@@ -394,7 +408,17 @@ body {
 }
 
 .coordenadores:hover~.gestao-estagiarios .node-link,
-.coordenadores:hover~.gestao-estagiarios .node-link:hover {
+.coordenadores:hover~.gestao-estagiarios .node-link:hover,
+.coordenadores:hover~.sub-coordenadores .node-link,
+.coordenadores:hover~.sub-coordenadores .node-link:hover {
+    background-color: #ccc;
+    background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
+    color: #5100ff;
+    border: 1px solid #4b4e55;
+}
+
+.sub-coordenadores:hover~.gestao-estagiarios .node-link,
+.sub-coordenadores:hover~.gestao-estagiarios .node-link:hover {
     background-color: #ccc;
     background: linear-gradient(to top, rgba(77, 196, 232, 0.656), rgb(84, 153, 179));
     color: #5100ff;
@@ -570,6 +594,10 @@ body {
 
 .menu-item>a:hover {
     background-color: #5388c0;
+}
+
+.sub-coordenadores {
+    display: none; /* Ensure the sub-coordenadores are hidden initially */
 }
 
 .menu-item ul {

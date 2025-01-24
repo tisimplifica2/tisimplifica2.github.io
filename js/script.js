@@ -97,7 +97,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add event listener to each sector link (e.g., #gestao-link)
+        const setorLinks = document.querySelectorAll('.node-link.setor');
+    
+        setorLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Toggle the "active" class on the sector, which shows the sub-coordinators
+                const setorId = link.getAttribute('data-setor-id'); // Assuming each link has a unique data attribute for sector id
+                const subCoordenadores = document.querySelector(`#sub-coordenadores-${setorId}`);
+    
+                if (subCoordenadores.style.display === 'none' || subCoordenadores.style.display === '') {
+                    subCoordenadores.style.display = 'flex';
+                } else {
+                    subCoordenadores.style.display = 'none';
+                }
+            });
+        });
+    });
+    
     // Filtro por texto
     const setorFilter = document.getElementById('setor-filter');
     const dropdownContent = document.getElementById('dropdown-content');
@@ -318,4 +336,31 @@ document.addEventListener('click', function(event) {
     if (!isClickInsideMenu) {
         document.querySelector('.filtro-menu').style.display = 'none';
     }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Ensure sub-coordenadores are initially hidden
+    document.querySelectorAll('.sub-coordenadores').forEach(function(subCoordenador) {
+        subCoordenador.style.display = 'none'; // Start hidden
+    });
+
+    // Add event listener to each sector link (e.g., #gestao-link)
+    const setorLinks = document.querySelectorAll('.node-link.setor');
+    
+    setorLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const setorId = link.getAttribute('data-setor-id'); // Assuming each link has a unique data attribute for sector id
+            const subCoordenadores = link.closest('.tree-node').querySelector('.sub-coordenadores');
+
+            if (subCoordenadores) {
+                // Toggle visibility of sub-coordenadores
+                if (subCoordenadores.style.display === 'none' || subCoordenadores.style.display === '') {
+                    subCoordenadores.style.display = 'flex'; // Show the sub-coordenadores
+                } else {
+                    subCoordenadores.style.display = 'none'; // Hide the sub-coordenadores
+                }
+            }
+        });
+    });
 });
