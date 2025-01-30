@@ -364,3 +364,42 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+/*
+// Add event listener to all elements with the class "node-link"document.addEventListener('DOMContentLoaded', function () {
+    const nodeLinks = document.querySelectorAll('.node-link');
+
+    nodeLinks.forEach(item => {
+        item.addEventListener('click', function(event) {
+            // Evita comportamento padrão de links
+            event.preventDefault(); 
+
+            if (item.classList.contains('funcionario')) {
+                const nome = item.querySelector('.node-label') ? item.querySelector('.node-label').textContent : 'Nome não disponível';
+                const cargo = item.querySelector('.node-label-cargo') ? item.querySelector('.node-label-cargo').textContent : 'Cargo não informado';
+                const turno = item.querySelector('.node-label-turno') ? item.querySelector('.node-label-turno').textContent : 'Turno não informado';
+
+                // Atualiza as informações na caixa
+                document.getElementById('info-nome').textContent = `Nome: ${nome}`;
+                document.getElementById('info-cargo').textContent = `Cargo: ${cargo}`;
+                document.getElementById('info-turno').textContent = turno ? `Turno: ${turno}` : '';
+
+                // Exibe a caixa de informações
+                document.querySelector('.info-quadro-container').style.display = 'flex'; // Mostra o container
+                document.querySelector('.info-quadro').style.display = 'flex'; // Mostra a caixa de informações
+            }
+        });
+    });
+
+    */
+
+    // Fecha a caixa de informações quando clicar fora dela
+    document.querySelector('.info-quadro-container').addEventListener('click', function(event) {
+        if (event.target === this) {
+            document.querySelector('.info-quadro-container').style.display = 'none'; // Esconde o container
+            document.querySelector('.info-quadro').style.display = 'none'; // Esconde a caixa de informações
+        } 
+    });
+
+
+

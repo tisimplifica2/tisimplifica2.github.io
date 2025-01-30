@@ -32,6 +32,18 @@
         <h2>Feito por Henrique J. D. Pereira</h2>
     </div>
 
+    <!-- Container for the info box (initially hidden) -->
+<div id="info-container" class="info-quadro-container" style="display: none;">
+    <!-- Box containing the information -->
+    <div id="informacoes" class="info-quadro">
+        <h3>Information</h3>
+        <p id="info-nome"></p>
+        <p id="info-cargo"></p>
+        <p id="info-turno"></p>
+    </div>
+</div>
+
+
     <button id="reload-btn" title="Recarregar página">
         <span class="icon">🔄</span>
     </button>
@@ -67,7 +79,6 @@
         </div>
     </div>
     </div>
-
     <div class="container">
         <div class="tree">
             <ul class="tree-root">
@@ -165,7 +176,7 @@
                                     <p class="node-label-turno">Vespertino</p>
                                 </a>
                             </li>
-                            <li class="tree-node-matutino">
+                            <li class="tree-node-matutino funcionario">
                                 <a href="#" class="node-link">
                                     <img src="imagens/bianca.jpg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Bianca</span>
@@ -174,7 +185,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-matutino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/denise.jpg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Denise</span>
                                     <p class="node-label-cargo">ESTAGIÁRIA</p>
@@ -182,7 +193,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-matutino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/maycon.jpg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Maycon</span>
                                     <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -190,7 +201,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-matutino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/maria-eduarda.jpeg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Maria Eduarda</span>
                                     <p class="node-label-cargo">ESTÁGIARIA</p>
@@ -198,7 +209,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-matutino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/fiorella-augustina.jpeg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Fiorella</span>
                                     <p class="node-label-cargo">ESTÁGIARIA</p>
@@ -215,7 +226,7 @@
                         </a>
                         <ul class="funcionarios">
                             <li class="tree-node-vespertino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/henrique.jpg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Henrique</span>
                                     <p class="node-label-cargo">ESTÁGIARIO</p>
@@ -232,7 +243,7 @@
                         </a>
                         <ul class="funcionarios">
                             <li class="tree-node-vespertino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/heloisa grobe.jpg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Heloisa</span>
                                     <p class="node-label-cargo">ESTAGIÁRIA</p>
@@ -240,7 +251,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-vespertino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/julia-hoeltgebaum.jpeg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Julia</span>
                                     <p class="node-label-cargo">ESTAGIÁRIA</p>
@@ -248,7 +259,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-matutino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/yasmin-heloisa.jpeg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Yasmin</span>
                                     <p class="node-label-cargo">ESTAGIÁRIA</p>
@@ -256,7 +267,7 @@
                                 </a>
                             </li>
                             <li class="tree-node-matutino">
-                                <a href="#" class="node-link">
+                                <a href="#" class="node-link funcionario">
                                     <img src="imagens/loriano.jpeg" alt="Employee Image" class="node-image">
                                     <span class="node-label">Loriano</span>
                                     <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -328,14 +339,14 @@
                         </a>
                         <ul class="funcionarios">
                             <li class="tree-node">
-                                <a href="#" class="node-link funcionario">
+                                <a href="#" class="node-link">
                                     <img src="imagens/odair.jpg" alt="Coordenador Image" class="node-image">
                                     <span class="node-label">ODAIR</span>
                                     <p class="node-label-cargo">SERVIDOR</p>
                                 </a>
                             </li>
                             <li class="tree-node">
-                                <a href="#" class="node-link funcionario">
+                                <a href="#" class="node-link">
                                     <img src="imagens/wander.jpg" alt="Coordenador Image" class="node-image">
                                     <span class="node-label">WANDER</span>
                                     <p class="node-label-cargo">SERVIDOR</p>
@@ -359,7 +370,7 @@
                                 </a>
                                 <ul class="funcionarios">
                                     <li class="tree-node-vespertino">
-                                        <a href="#" class="node-link">
+                                        <a href="#" class="node-link funcionario">
                                             <img src="imagens/plinio.jpg" alt="Employee Image" class="node-image">
                                             <span class="node-label">Plínio</span>
                                             <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -367,7 +378,7 @@
                                         </a>
                                     </li>
                                     <li class="tree-node-vespertino">
-                                        <a href="#" class="node-link">
+                                        <a href="#" class="node-link funcionario">
                                             <img src="imagens/gabriel christoff.jpg" alt="Employee Image" class="node-image">
                                             <span class="node-label">Gabriel</span>
                                             <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -375,7 +386,7 @@
                                         </a>
                                     </li>
                                     <li class="tree-node-vespertino">
-                                        <a href="#" class="node-link">
+                                        <a href="#" class="node-link funcionario">
                                             <img src="imagens/eduarda vaz.jpg" alt="Employee Image" class="node-image">
                                             <span class="node-label">Eduarda</span>
                                             <p class="node-label-cargo">ESTAGIÁRIA</p>
@@ -383,7 +394,7 @@
                                         </a>
                                     </li>
                                     <li class="tree-node-matutino">
-                                        <a href="#" class="node-link">
+                                        <a href="#" class="node-link funcionario">
                                             <img src="imagens/vinicius.jpg" alt="Employee Image" class="node-image">
                                             <span class="node-label">Vinicius</span>
                                             <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -391,7 +402,7 @@
                                         </a>
                                     </li>
                                     <li class="tree-node-matutino">
-                                        <a href="#" class="node-link">
+                                        <a href="#" class="node-link funcionario">
                                             <img src="imagens/Daniel_foto.jpg" alt="Employee Image" class="node-image">
                                             <span class="node-label">Daniel</span>
                                             <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -399,7 +410,7 @@
                                         </a>
                                     </li>
                                     <li class="tree-node-matutino">
-                                        <a href="#" class="node-link">
+                                        <a href="#" class="node-link funcionario">
                                             <img src="imagens/ricardo.jpg" alt="Employee Image" class="node-image">
                                             <span class="node-label">Ricardo</span>
                                             <p class="node-label-cargo">ESTAGIÁRIO</p>
@@ -433,7 +444,7 @@
                                         </a>
                                         <ul class="sub-funcionarios">
                                             <li class="tree-node-matutino">
-                                                <a href="#" class="node-link">
+                                                <a href="#" class="node-link funcionario">
                                                     <img src="imagens/bruna-aleiara.jpeg" alt="Employee Image"
                                                         class="node-image">
                                                     <span class="node-label">Bruna</span>
@@ -442,7 +453,7 @@
                                                 </a>
                                             </li>
                                             <li class="tree-node-vespertino">
-                                                <a href="#" class="node-link">
+                                                <a href="#" class="node-link funcionario">
                                                     <img src="imagens/yasmin tilch.jpg" alt="Employee Image"
                                                         class="node-image">
                                                     <span class="node-label">Yasmin</span>
@@ -451,7 +462,7 @@
                                                 </a>
                                             </li>
                                             <li class="tree-node-vespertino">
-                                                <a href="#" class="node-link">
+                                                <a href="#" class="node-link funcionario">
                                                     <img src="imagens/sofya.jpg" alt="Employee Image"
                                                         class="node-image">
                                                     <span class="node-label">Sofya</span>
@@ -460,7 +471,7 @@
                                                 </a>
                                             </li>
                                             <li class="tree-node-vespertino">
-                                                <a href="#" class="node-link">
+                                                <a href="#" class="node-link funcionario">
                                                     <img src="imagens/isabela vaz.jpg" alt="Employee Image"
                                                         class="node-image">
                                                     <span class="node-label">Isabela</span>
@@ -515,7 +526,7 @@
                                         </a>
                                         <ul class="sub-funcionarios">
                                             <li class="tree-node-matutino">
-                                                <a href="#" class="node-link">
+                                                <a href="#" class="node-link funcionario">
                                                     <img src="imagens/leonardo bertolo.jpg" alt="Employee Image"
                                                         class="node-image">
                                                     <span class="node-label">Leonardo</span>
@@ -524,7 +535,7 @@
                                                 </a>
                                             </li>
                                             <li class="tree-node-vespertino">
-                                                <a href="#" class="node-link">
+                                                <a href="#" class="node-link funcionario">
                                                     <img src="imagens/enzo matheus.jpg" alt="Employee Image"
                                                         class="node-image">
                                                     <span class="node-label">Enzo</span>
@@ -553,7 +564,7 @@
                         </a>
                         <ul class="funcionarios">
                             <li class="tree-node">
-                                <a href="#" class="node-link funcionario">
+                                <a href="#" class="node-link setor">
                                     <img src="imagens/cad.png" alt="Coordenador Image" class="node-image">
                                     <span class="node-label">Cadastro Econômico</span>
                                 </a>
@@ -577,8 +588,6 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            
-                        
                             <li class="tree-node">
                                 <a href="#" class="node-link setor">
                                     <img src="imagens/mei.png" alt="Coordenador Image" class="node-image">
